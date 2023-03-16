@@ -1,2 +1,3 @@
 # codeNameSpace
-This project Space is made by three people
+Dit project is gemaakt door: 2Dudes Studio
+Alle rechten voorbehouden.
