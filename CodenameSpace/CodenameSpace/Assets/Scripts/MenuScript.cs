@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public string firstLevel;
+    public GameObject optScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +28,12 @@ public class MenuScript : MonoBehaviour
 
     public void OpenOption()
     {
-
+        optScreen.SetActive(true);
     }
 
     public void CloseOption()
     {
-
+        optScreen.SetActive(false);
     }
 
     public void CloseGame()
