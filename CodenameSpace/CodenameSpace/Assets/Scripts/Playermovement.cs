@@ -10,6 +10,8 @@ public class Playermovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    Animator anim;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private int jumpsRemain;
@@ -18,12 +20,31 @@ public class Playermovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpsRemain = 2; //Start with 2 jumps
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         float movement = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(movement * movementSpeed, rb.velocity.y);
+
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+        if (movement > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f); // Set scale to default
+        }
+        else if (movement < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f); // Flip horizontally
+        }
     }
 
     /*
