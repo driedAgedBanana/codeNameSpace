@@ -36,7 +36,30 @@ public class Playermovement : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("IsJumping", true);
+        }
+        else
+        {
+            anim.SetBool("IsJumping", false);
+        }
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("inAir", true);
+        }
+        else
+        {
+            anim.SetBool("inAir", false);
+        }
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("IsLanding", false);
+        }
+        else
+        {
+            anim.SetBool("IsLanding", false);
+        }
         if (movement > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f); // Set scale to default
