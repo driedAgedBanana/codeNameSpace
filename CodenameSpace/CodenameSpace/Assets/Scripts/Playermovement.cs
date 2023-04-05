@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Playermovement : MonoBehaviour
@@ -37,10 +38,15 @@ public class Playermovement : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-        if(Input.GetButtonDown("Jump"))
+        if(rb.velocity.y > 0)
         {
             anim.SetBool("Jump", true);
             jump= true;
+        }
+        else
+        {
+            anim.SetBool("Jump", false);
+            jump = false;
         }
         if (movement > 0)
         {
