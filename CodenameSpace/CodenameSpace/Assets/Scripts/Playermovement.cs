@@ -15,6 +15,7 @@ public class Playermovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private int jumpsRemain;
+    bool jump;
 
     private void Start()
     {
@@ -36,29 +37,10 @@ public class Playermovement : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-        if(rb.velocity != Vector2.zero)
+        if(Input.GetButtonDown("Jump"))
         {
-            anim.SetBool("IsJumping", true);
-        }
-        else
-        {
-            anim.SetBool("IsJumping", false);
-        }
-        if(rb.velocity != Vector2.zero)
-        {
-            anim.SetBool("inAir", true);
-        }
-        else
-        {
-            anim.SetBool("inAir", false);
-        }
-        if(rb.velocity != Vector2.zero)
-        {
-            anim.SetBool("IsLanding", false);
-        }
-        else
-        {
-            anim.SetBool("IsLanding", false);
+            anim.SetBool("Jump", true);
+            jump= true;
         }
         if (movement > 0)
         {
